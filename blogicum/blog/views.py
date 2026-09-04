@@ -6,16 +6,18 @@ from blog.models import Post, Category
 
 POST_LIMIT = 5
 
+
 def get_base_query_set():
     return Post.objects.select_related(
-                'category',
-                'location',
-                'author'
-            ).filter(
+        'category',
+        'location',
+        'author'
+    ).filter(
         is_published=True,
         category__is_published=True,
         pub_date__lte=timezone.now()
     )
+
 
 def index(request):
     template = 'blog/index.html'

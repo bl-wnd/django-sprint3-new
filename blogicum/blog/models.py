@@ -25,7 +25,10 @@ class PublishedModel(models.Model):
 
 
 class Category(PublishedModel):
-    title = models.CharField(max_length=MAX_CHAR_LENGTH, verbose_name='Заголовок')
+    title = models.CharField(
+        max_length=MAX_CHAR_LENGTH,
+        verbose_name='Заголовок'
+    )
     description = models.TextField(verbose_name='Описание')
     slug = models.SlugField(
         unique=True,
@@ -45,7 +48,10 @@ class Category(PublishedModel):
 
 
 class Location(PublishedModel):
-    name = models.CharField(max_length=MAX_CHAR_LENGTH, verbose_name='Название места')
+    name = models.CharField(
+        max_length=MAX_CHAR_LENGTH,
+        verbose_name='Название места'
+    )
 
     class Meta(PublishedModel.Meta):
         verbose_name = 'местоположение'
@@ -56,7 +62,10 @@ class Location(PublishedModel):
 
 
 class Post(PublishedModel):
-    title = models.CharField(max_length=MAX_CHAR_LENGTH, verbose_name='Заголовок')
+    title = models.CharField(
+        max_length=MAX_CHAR_LENGTH,
+        verbose_name='Заголовок'
+    )
     text = models.TextField(verbose_name='Текст')
     pub_date = models.DateTimeField(
         default=timezone.now,
